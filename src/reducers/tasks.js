@@ -15,7 +15,7 @@ export const tasks = (state = [], action) => {
 			]
 		case C.TOGGLE_COMPLITED:
 			return state.map(task => 
-				task.id == action.id ?
+				task.id === action.id ?
 					{...task, complited: !task.complited} : task
 			)
 		default:

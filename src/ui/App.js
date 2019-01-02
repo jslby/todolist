@@ -1,9 +1,12 @@
 import React from 'react';
-import {NewTask, ActiveTask} from '../containers/tasks.js';
+import {NewTask, VisibleTasks, ComplitedTasks} from '../containers/tasks.js';
 import '../ui/App.scss';
 
 export default () =>
 	<div className='container'>
 		<NewTask/>
-		<ActiveTask/>
+		<div>Active</div>
+		<VisibleTasks/>
+		<div>Complited</div>
+		<ComplitedTasks/>
 	</div>
