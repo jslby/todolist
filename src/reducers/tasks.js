@@ -23,6 +23,8 @@ export const tasks = (state = [], action) => {
 				task.id === action.id ?
 				{...task, important: !task.important} : task
 			)
+		case C.REMOVE:
+			return state.filter(task => task.id !== action.id)
 		default:
 			return state
 	}

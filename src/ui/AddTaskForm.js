@@ -15,7 +15,8 @@ export default ({onNewTask = f => f}) => {
 	}
 	return(
 		<div className='add-form'>
-			<input ref={i => _text = i} onKeyPress={handleKey} type='text' placeholder='Type task'/>
+			<h1>#todome</h1>
+			<input autoFocus ref={i => _text = i} onKeyPress={handleKey} type='text' placeholder='just type task...'/>
 		</div>
 	)
 }

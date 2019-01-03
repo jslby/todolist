@@ -1,10 +1,20 @@
+/* https://coolors.co/3d5a80-98c1d9-e0fbfc-ee6c4d-293241 */
+$purple: rgba(61, 90, 128, 1);
+$pale: rgba(152, 193, 217, 1);
+$light: rgba(224, 251, 252, 1);
+$red: rgba(238, 108, 77, 1);
+$dark: rgba(41, 50, 65, 1);
+
 *{
 	box-sizing: border-box;
+}
 
+body{
+	font-family: Arial;
 }
 
 .container{
-	width: 600px;
+	width: 800px;
 	padding: 0 50px;
 	margin: 0 auto;
 }
@@ -12,21 +22,94 @@
 .add-form{
 	margin-top: 50px;
 	margin-bottom: 30px;
+	h1{
+		font-size: 100px;
+		font-weight: normal;
+		color: $red;
+		padding: 0;
+		margin: 0;
+	}
 	input{
+		outline: none;
 		width: 100%;
+		border: none;
+		color: $dark;
 		max-width: 100%;
 		height: 60px;
-		font-size: 28px;
-		padding: 0 15px;
+		margin-top: 30px;
+		font-size: 38px;
+		&::placeholder{
+			color: $dark;
+		}
 	}
 }
 
 .task-list{
 	.task-item{
+		display: flex;
+		align-items: center;
 		padding: 10px 15px;
-		background: #f6f6f6;
+		background: $pale;
 		border-radius: 3px;
 		margin-bottom: 10px;
 		font-size: 24px;
+		span{
+			overflow: hidden;
+			background: transparent;
+			&.toggleComplited{
+				width: 30px;
+				cursor: pointer;
+				height: 30px;
+				border-radius: 50%;
+				border: 1px solid $purple;
+				background: transparent;
+				margin-right: 15px;
+			}
+			&.remove{
+				width: 20px;
+				height: 20px;
+				position: relative;
+				margin-left: auto;
+				cursor: pointer;
+				&:after, &:before{
+					position: absolute;
+					left: 10px;
+					content: '';
+					height: 20px;
+					width: 2px;
+					background-color: $dark;
+				}
+				&:before{
+					transform: rotate(45deg);
+				}
+				&:after{
+					transform: rotate(-45deg);
+				}
+			}
+		}
+		&.complited{
+			.text{
+				text-decoration: line-through;
+			}
+			.toggleComplited{
+				position: relative;
+				&:before{
+					content: '';
+					position: absolute;
+					left: 9px;
+					top: 3px;
+					width: 7px;
+					border: 3px solid $red;
+					border-width: 0 3px 3px 0;
+					transform: rotate( 45deg);
+					height: 15px;
+					text-align: center;
+					display: inline-block;
+					font-size: 30px;
+					line-height: 30px;
+				}
+			}
+			opacity: 0.7;
+		}
 	}
 }

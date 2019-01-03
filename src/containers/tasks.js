@@ -1,7 +1,7 @@
 import AddTaskForm from '../ui/AddTaskForm';
 import C from '../constants.js';
 import TaskList from '../ui/TaskList';
-import {addTask, toggleComplited, toggleImportant} from '../actions/tasks';
+import {addTask, removeTask, toggleComplited, toggleImportant} from '../actions/tasks';
 import {connect} from 'react-redux';
 
 
@@ -22,19 +22,8 @@ export const Tasks = connect(
 		onToggleComplited(id){
 			dispatch(toggleComplited(id))
 		},
-		onToggleImportant(id){
-			dispatch(toggleImportant(id))
-		}
-	})
-)(TaskList)
-
-export const ComplitedTasks = connect(
-	state => ({
-		tasks: [...state.tasks.filter(t => !t.complited)]
-	}),
-	dispatch => ({
-		onToggleComplited(id){
-			dispatch(toggleComplited(id))
+		onRemoveTask(id){
+			dispatch(removeTask(id))
 		},
 		onToggleImportant(id){
 			dispatch(toggleImportant(id))

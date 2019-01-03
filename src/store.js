@@ -5,20 +5,32 @@ const initStore = {
 	tasks: [ 
 		{
 			id: 0,
-			text: '',
-			createdAt: '',
-			status: 'active', /* complit */
-			priority: 'high' /* low default */
+			text: 'test task 1',
+			createdAt: new Date().getTime(),
+			complited: false,
+			important: false /* low default */
+
+		},
+		{
+			id: 1,
+			text: 'test task 2',
+			createdAt: new Date().getTime(),
+			complited: true,
+			important: false /* low default */
+
+		},
+		{
+			id: 3,
+			text: 'test task 3',
+			createdAt: new Date().getTime(),
+			complited: false,
+			important: true /* low default */
+
 		}
+
+
 	]
 }
 
-/*
- * У нас будет возможность добавлять новые задачи
- * удалять старые
- * менять статус у старых задачь
- */
-
-const store = createStore(combineReducers({tasks}));
-
+const store = createStore(combineReducers({tasks}), initStore);
 export default store;
