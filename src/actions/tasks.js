@@ -7,8 +7,8 @@ export const addTask = text =>
 		id: v4(),
 		text,
 		createdAt: new Date().getTime(),
-		status: true,
-		priority: 'low'
+		complited: true,
+		important: false
 	})
 
 export const removeTask = id =>
@@ -23,9 +23,8 @@ export const toggleComplited = id =>
 		id
 	})
 
-export const tooglePriority = (id, priority) =>
+export const toggleImportant = (id) =>
 	({
-		type: C.TOGGLE_PRIORITY,
+		type: C.TOGGLE_IMPORTANT,
 		id,
-		priority
 	})

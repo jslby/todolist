@@ -1,12 +1,11 @@
 import React from 'react';
-import {NewTask, VisibleTasks, ComplitedTasks} from '../containers/tasks.js';
+import C from '../constants';
+import {NewTask, Tasks} from '../containers/tasks.js';
 import '../ui/App.scss';
 
 export default () =>
 	<div className='container'>
 		<NewTask/>
-		<div>Active</div>
-		<VisibleTasks/>
-		<div>Complited</div>
-		<ComplitedTasks/>
+		<Tasks filter={C.FILTER_ACTIVE}/>
+		<Tasks filter={C.FILTER_COMPLITED}/>
 	</div>

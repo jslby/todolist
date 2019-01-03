@@ -8,8 +8,8 @@ export const tasks = (state = [], action) => {
 					id: action.id,
 					text: action.text,
 					createdAt: action.createdAt,
-					complited: action.status,
-					priority: action.priority
+					complited: action.complited,
+					important: action.important
 				},
 				...state
 			]
@@ -17,6 +17,11 @@ export const tasks = (state = [], action) => {
 			return state.map(task => 
 				task.id === action.id ?
 					{...task, complited: !task.complited} : task
+			)
+		case C.TOGGLE_IMPORTANT:
+			return state.map(task =>
+				task.id === action.id ?
+				{...task, important: !task.important} : task
 			)
 		default:
 			return state
