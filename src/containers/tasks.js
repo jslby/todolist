@@ -15,8 +15,8 @@ export const NewTask = connect(
 )(AddTaskForm)
 
 export const Tasks = connect(
-	(state, {filter = C.FILTER_ACTIVE}) => ({
-		tasks: [...state.tasks.filter(t => (filter === C.FILTER_ACTIVE) ? t.complited : !t.complited)]
+	(state, {actives}) => ({
+		tasks: state.tasks.filter(t => actives ? !t.complited : t.complited)
 	}),
 	dispatch => ({
 		onToggleComplited(id){
